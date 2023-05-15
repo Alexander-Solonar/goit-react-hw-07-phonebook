@@ -1,14 +1,14 @@
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { addContact } from 'redux/operations';
 import { nanoid } from 'nanoid';
 import css from './ContactForm.module.css';
-import { useDispatch, useSelector } from 'react-redux';
-import { addContact } from 'redux/contactsSlice';
 
 const ContactForm = () => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
 
-  const contacts = useSelector(state => state.contacts);
+  const { items } = useSelector(state => state.contacts);
   const dispatch = useDispatch();
 
   const handleInputChange = event => {
@@ -36,7 +36,7 @@ const ContactForm = () => {
     };
 
     const normalizedName = newContact.name.toLowerCase();
-    const isName = contacts.some(
+    const isName = items.some(
       ({ name }) => name.toLowerCase() === normalizedName
     );
 
