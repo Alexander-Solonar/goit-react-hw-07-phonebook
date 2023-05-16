@@ -20,9 +20,9 @@ export const App = () => {
       <ContactForm />
       <h2>Contacts</h2>
       <Filter />
-      {isLoading && <p>Loading...</p>}
+      {isLoading && <p className={css.loader}>Loading...</p>}
+      {error && <p className={css.error}>{error}</p>}
       {items.length > 0 && <ContactList />}
-      {error && <p>{error};</p>}
     </div>
   );
 };
