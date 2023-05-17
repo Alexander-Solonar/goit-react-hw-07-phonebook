@@ -18,13 +18,15 @@ const handleFulfilledFetch = (state, action) => {
 const handleFulfilledAdd = (state, action) => {
   state.isLoading = false;
   state.error = null;
-  state.items.push(action.payload);
+  state.contacts.items.push(action.payload);
 };
 
 const handleFulfilledDelete = (state, action) => {
   state.isLoading = false;
   state.error = null;
-  const index = state.items.findIndex(contact => contact.id === action.payload);
+  const index = state.items.findIndex(
+    contact => contact.id === action.payload.id
+  );
   state.items.splice(index, 1);
 };
 
