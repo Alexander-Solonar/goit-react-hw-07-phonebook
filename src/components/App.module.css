@@ -4,6 +4,8 @@
 }
 
 .loader {
+  position: absolute;
+
   font-weight: 700;
 }
 

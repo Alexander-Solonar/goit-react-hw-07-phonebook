@@ -36,12 +36,19 @@ const ContactForm = () => {
     };
 
     const normalizedName = newContact.name.toLowerCase();
+
     const isName = items.some(
       ({ name }) => name.toLowerCase() === normalizedName
     );
+    const isNumber = items.some(({ number }) => number === newContact.number);
 
     if (isName) {
       alert(`${newContact.name} is already in contacts.`);
+      return;
+    }
+
+    if (isNumber) {
+      alert(`${newContact.number} is already in contacts.`);
       return;
     }
 
